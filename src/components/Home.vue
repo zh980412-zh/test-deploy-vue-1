@@ -1,5 +1,18 @@
 <template>
     <div id="home">
+        <nav>
+            <div>
+                <img src="favicon.ico" alt="">
+                <div>部署测试</div> 
+            </div>
+            <ul>
+                <li>主页</li>
+                <li>联系</li>
+                <li>关于</li>
+            </ul>
+        </nav>
+
+
         <div class="title">
         <div><a href="https://www.browserstack.com">BrowserStack</a>
         <div>BrowserStack 是著名的:多系统跨浏览器兼容性测试平台，平台每次注册后提供30分钟的试用，以后就会收费，针对这个问题，有人制作了小工具，集成了一键注册登陆功能，省去了每次手工注册的时间，为WEB网页开发人员提供方便。</div>
@@ -13,6 +26,13 @@
         <div>亚马逊云科技 - 亚马逊公司旗下云计算服务平台,为世界各地的客户提供一整套基础设施和云解决方案. 亚马逊云科技面向用户提供整套云计算服务,能够帮助企业降低IT投入成本和维护成本, 轻松上云.</div>
         </div>
         </div>
+
+        <div id="btn">
+              <button @click="alertInfo">
+            点击一下，弹窗
+            </button>
+        </div>
+      
      
       
     </div>
@@ -21,16 +41,63 @@
 
 <script>
 export default {
+    methods:{
+        alertInfo(){
+            confirm('弹出测试信息')
+        }
+    }
 
 }
 </script>
 
 <style scoped lang='less'>
+nav{
+    height:50px;
+    border-bottom:1px solid #ccc;
+    >div{
+        float: left;
+        padding-top:6px;
+        padding-left:100px;
+        >div{
+            float:right;
+            padding-left:20px;
+            line-height:28px;
+            color:#567;
+            font-size:23px;
+        }
+        
+    }
+ 
+    >ul{
+        list-style-type: none;
+        float: right;
+        li{
+            float:left;
+            line-height: 20px;
+            font-size:21px;
+            cursor: pointer;
+            color:green;
+            padding-right: 50px;
+            &+li{
+                color:#000;
+            }
+            &:last-child{
+                padding-right: 120px;
+            }
+            &:hover{
+                color:green;
+            }
+        }
+    }
+}
 
 .title {
     display: flex;
     justify-content: space-around;
     margin-top:150px;
+    width:100%;
+    height:300px;
+    margin-left:200px;
     >div{
         width:120px;
         height:30px;
@@ -71,5 +138,33 @@ export default {
         }
     }
 } 
+nav::after{
+    content:'';
+    display: table;
+    clear:both;
+}
+.title::after{
+    content:'';
+    display: table;
+    clear:both;
+}
+
+#btn{
+    width:120px;
+    text-align: center;
+    margin:100px auto;
+    >button{
+        width:120px;
+        height:36px;
+        background:green;
+        color:#fff;
+        outline: none;
+        border:none;
+        border-radius:5px;
+        &:active{
+            box-shadow: 2px 2px 2px 2px #999;
+        }
+    }
+}
 
 </style>
