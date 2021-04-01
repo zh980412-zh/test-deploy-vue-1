@@ -43,7 +43,7 @@
 export default {
     methods:{
         alertInfo(){
-            confirm('弹出测试信息')
+            confirm('弹出测试信息!')
         }
     }
 
