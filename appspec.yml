@@ -3,15 +3,3 @@ os: linux
 files:
   - source: /dist
     destination: /home/bitnami/htdocs/
-hooks:
-  BeforeInstall:
-    - location: scripts/install_dependencies
-      timeout: 300
-      runas: bitnami
-    - location: scripts/start_server
-      timeout: 300
-      runas: bitnami
-  ApplicationStop:
-    - location: scripts/stop_server
-      timeout: 300
-      runas: bitnami
